@@ -1,0 +1,55 @@
+<div class="container">
+
+  <div class="container">
+    <div class="col-md-6 col-md-offset-5 " style="margin-left: 100px;margin-top: 50px;color:white;">
+    <div class="form">
+    <form [formGroup]="addform" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <h1>Booking Form</h1>
+          <label>Date of Journey</label>
+        <div class="row">
+          <div class="col-xs-12 col-12 col-md-7 form-group">
+            <input type="date" formControlName="startdate" placeholder="Booking Date" class="form-control">
+          </div>
+        </div>
+    
+        <label>Start Location</label><br>
+        <div class="col-xs-2" style="width: 185px">
+        <select ngModel (change)="onChange2($event)" class="form-control" formControlName="StartLocation" id="sel1">
+          <option value="1">Airoli</option>
+          <option value="2">Rabale</option>
+          <option value="3">Thane</option>
+          <option value="4">Dombivli</option>
+          <option value="5">Kalyan</option>
+        </select>
+      </div>
+        <label>End Location</label><br>
+        <div class="col-xs-2" style="width: 185px">
+          <select ngModel (change)="onChange($event)" class="form-control" formControlName="EndLocation" id="sel1">
+            <option value="1">Airoli</option>
+            <option value="2">Rabale</option>
+            <option value="3">Thane</option>
+            <option value="4">Dombivli</option>
+            <option value="5">Kalyan</option>
+          </select>
+        </div>
+        <label>Taxi Model</label><br>
+        <div class="col-xs-2" style="width: 185px">
+          <select class="form-control" formControlName="TaxiModel" id="sel1">
+            <option value="4 Seater">4 Seater</option>
+            <option value="6 Seater">6 Seater</option>
+          </select>
+        </div>
+        <label>Amount</label><br>
+        <input type="text" formControlName="Amount" style="color: black;" readonly/><br>
+        <label>Time</label><br>
+        <input type="time" formControlName="StartTime" style="color: black;"/><br>
+      </div>
+      <button type="submit" class="btn btn-warning col-md-offset-3">Book Now</button>
+    </form>
+    </div>
+    </div>
+    </div>
+      
+</div>
+  

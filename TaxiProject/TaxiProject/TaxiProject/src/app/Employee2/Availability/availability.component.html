@@ -1,0 +1,43 @@
+<div class="container center_div">
+
+    <div class="row">
+
+   <div class="col-md-4 col-md-offset-6">  
+        
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group">
+        <label for="emp">EmployeeId: </label>      
+        <input type="number" class="form-control"
+        formControlName="emp" id="emp"/>
+  
+         <div *ngIf="submitted && addForm.controls.emp.errors"
+        class="error">
+          <div class="text-danger" 
+          *ngIf="addForm.controls.emp.errors.required">
+            EmployeeId is required
+          </div> 
+    </div>
+      </div>
+    <div class="form-group">
+      <label for="selectdate">Select date: </label>      
+      <input type="date" class="form-control"
+      formControlName="selectdate" id="selectdate"/>
+  
+      <div *ngIf="submitted && addForm.controls.selectdate.errors"
+      class="error">
+        <div class="text-danger" 
+        *ngIf="addForm.controls.selectdate.errors.required">
+          Date is required .
+        </div>
+      </div>      
+  </div>
+      <button class="btn btn-success">Save</button> 
+    </form>
+</div>
+</div><div></div>
+</div>
+
+
+
+  

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f24fca0bf24486bb1b2a6656cc0ec90" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Availabilitytable" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BookingDetail" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cust_Register" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Emp_Register" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employee_Roaster" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FeedBack" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Location" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Logintable" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TaxiDetail" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__Availabilit__emp__4066405D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__BookingDe__CustI__31E316DC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__BookingDe__EmpId__30EEF2A3" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__FeedBack__custid__47133DEC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Employee___EmpId__1D1D0420" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__FeedBack__empid__48076225" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

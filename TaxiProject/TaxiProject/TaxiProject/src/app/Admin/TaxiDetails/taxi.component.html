@@ -1,0 +1,59 @@
+
+<div class="col-md-4 col-md-offset-4" style="padding-top: 100px">
+    <!-- Designing Roaster User Form-->
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+        
+        
+        
+        <div class="form-group">
+            <label for="taxinumber">Taxi Number : </label>
+            <input type="text" class="form-control" formControlName="taxinumber" id="email" />
+
+            <div *ngIf="submitted && addForm.controls.taxinumber.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.taxinumber.errors.required">
+                    Taxi Number is required ..
+                </div>
+               
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="taximodel">Taxi Model : </label>
+            <!-- <input type="text" class="form-control" formControlName="taximodel" id="taximodel" /> -->
+<select class="form-control" formControlName="taximodel">
+<option value="4 Seater">4 Seater</option>
+<option value="6 Seater">6 Seater</option>
+</select>
+            <div *ngIf="submitted && addForm.controls.taximodel.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.taximodel.errors.required">
+                    taximodel is required ..
+                </div>
+                
+            </div>
+        </div>
+
+       
+
+        
+        <button class="btn btn-success">Submit</button>
+        </form>
+        </div>
+        
+        <div  >
+                <!-- <h3 align="center">Taxi Details</h3> -->
+                <br />
+            
+            <table  class="table table-bordered" style="background-color:white;height: 104px">
+                <tr *ngFor="let c of taxiall">
+                        <td>{{c.TaxiID}}</td>
+                    <td>{{c.TaxiNumber}}</td>
+                    <td>{{c.TaxiModel}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <br/>
+        <br/>
+        <p>{{errormessage}}</p>

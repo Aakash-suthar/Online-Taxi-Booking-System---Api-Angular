@@ -1,0 +1,36 @@
+/* .col-md-6{
+    box-shadow: 5px 5px 5px 5px black;
+}
+
+.form{
+    margin-left: 170px;
+}
+
+body{
+    background-size: 100%;
+    padding-bottom: 118px;
+}
+
+.navbar-default{
+    background: transparent;
+    border: 0;
+}  */
+.col-md-6{
+    box-shadow: 5px 5px 5px 5px black;
+}
+
+.form{
+    margin-left: 170px;
+}
+
+body{
+    background-image: url('/assets/images/city1.jpeg');
+    background-size: 100%;
+    padding-bottom: 35px;
+}
+
+.navbar{
+    background-image: transparent;
+    border: 0;
+} 
+

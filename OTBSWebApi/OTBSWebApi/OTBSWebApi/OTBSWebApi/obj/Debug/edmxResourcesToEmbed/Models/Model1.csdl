@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Availabilitytable">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emp" Type="Int32" />
+    <Property Name="selectdate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Emp_Register" Relationship="Self.FK__Availabilit__emp__4066405D" FromRole="Availabilitytable" ToRole="Emp_Register" />
+  </EntityType>
+  <EntityType Name="BookingDetail">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="StartLocation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EndLocation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="TaxiNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BookingStatus" Type="Boolean" />
+    <Property Name="Trip" Type="Boolean" />
+    <Property Name="EmpId" Type="Int32" />
+    <Property Name="CustId" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="TaxiModel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cust_Register" Relationship="Self.FK__BookingDe__CustI__31E316DC" FromRole="BookingDetails" ToRole="Cust_Register" />
+    <NavigationProperty Name="Emp_Register" Relationship="Self.FK__BookingDe__EmpId__30EEF2A3" FromRole="BookingDetails" ToRole="Emp_Register" />
+  </EntityType>
+  <EntityType Name="Cust_Register">
+    <Key>
+      <PropertyRef Name="CustID" />
+    </Key>
+    <Property Name="CustID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pincode" Type="Int32" Nullable="false" />
+    <Property Name="CustPasswd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BookingDetails" Relationship="Self.FK__BookingDe__CustI__31E316DC" FromRole="Cust_Register" ToRole="BookingDetails" />
+    <NavigationProperty Name="FeedBacks" Relationship="Self.FK__FeedBack__custid__47133DEC" FromRole="Cust_Register" ToRole="FeedBack" />
+  </EntityType>
+  <EntityType Name="Emp_Register">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Experience" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Availabilitytables" Relationship="Self.FK__Availabilit__emp__4066405D" FromRole="Emp_Register" ToRole="Availabilitytable" />
+    <NavigationProperty Name="BookingDetails" Relationship="Self.FK__BookingDe__EmpId__30EEF2A3" FromRole="Emp_Register" ToRole="BookingDetails" />
+    <NavigationProperty Name="Employee_Roaster" Relationship="Self.FK__Employee___EmpId__1D1D0420" FromRole="Emp_Register" ToRole="Employee_Roaster" />
+    <NavigationProperty Name="FeedBacks" Relationship="Self.FK__FeedBack__empid__48076225" FromRole="Emp_Register" ToRole="FeedBack" />
+  </EntityType>
+  <EntityType Name="Employee_Roaster">
+    <Key>
+      <PropertyRef Name="RoasterID" />
+    </Key>
+    <Property Name="RoasterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpId" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="InTime" Type="Time" Precision="7" />
+    <Property Name="OutTime" Type="Time" Precision="7" />
+    <NavigationProperty Name="Emp_Register" Relationship="Self.FK__Employee___EmpId__1D1D0420" FromRole="Employee_Roaster" ToRole="Emp_Register" />
+  </EntityType>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="feedbackID" />
+    </Key>
+    <Property Name="feedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="custid" Type="Int32" />
+    <NavigationProperty Name="Cust_Register" Relationship="Self.FK__FeedBack__custid__47133DEC" FromRole="FeedBack" ToRole="Cust_Register" />
+    <NavigationProperty Name="Emp_Register" Relationship="Self.FK__FeedBack__empid__48076225" FromRole="FeedBack" ToRole="Emp_Register" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Logintable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Passwd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Roles" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaxiDetail">
+    <Key>
+      <PropertyRef Name="TaxiID" />
+    </Key>
+    <Property Name="TaxiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaxiNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TaxiModel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Availabilit__emp__4066405D">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="Availabilitytable" Type="Self.Availabilitytable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="Availabilitytable">
+        <PropertyRef Name="emp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingDe__CustI__31E316DC">
+    <End Role="Cust_Register" Type="Self.Cust_Register" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="Self.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cust_Register">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingDe__EmpId__30EEF2A3">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="Self.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FeedBack__custid__47133DEC">
+    <End Role="Cust_Register" Type="Self.Cust_Register" Multiplicity="0..1" />
+    <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cust_Register">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="FeedBack">
+        <PropertyRef Name="custid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___EmpId__1D1D0420">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="Employee_Roaster" Type="Self.Employee_Roaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="Employee_Roaster">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FeedBack__empid__48076225">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="FeedBack">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Availabilitytables" EntityType="Self.Availabilitytable" />
+    <EntitySet Name="BookingDetails" EntityType="Self.BookingDetail" />
+    <EntitySet Name="Cust_Register" EntityType="Self.Cust_Register" />
+    <EntitySet Name="Emp_Register" EntityType="Self.Emp_Register" />
+    <EntitySet Name="Employee_Roaster" EntityType="Self.Employee_Roaster" />
+    <EntitySet Name="FeedBacks" EntityType="Self.FeedBack" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="Logintables" EntityType="Self.Logintable" />
+    <EntitySet Name="TaxiDetails" EntityType="Self.TaxiDetail" />
+    <AssociationSet Name="FK__Availabilit__emp__4066405D" Association="Self.FK__Availabilit__emp__4066405D">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="Availabilitytable" EntitySet="Availabilitytables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingDe__CustI__31E316DC" Association="Self.FK__BookingDe__CustI__31E316DC">
+      <End Role="Cust_Register" EntitySet="Cust_Register" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingDe__EmpId__30EEF2A3" Association="Self.FK__BookingDe__EmpId__30EEF2A3">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FeedBack__custid__47133DEC" Association="Self.FK__FeedBack__custid__47133DEC">
+      <End Role="Cust_Register" EntitySet="Cust_Register" />
+      <End Role="FeedBack" EntitySet="FeedBacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___EmpId__1D1D0420" Association="Self.FK__Employee___EmpId__1D1D0420">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="Employee_Roaster" EntitySet="Employee_Roaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FeedBack__empid__48076225" Association="Self.FK__FeedBack__empid__48076225">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="FeedBack" EntitySet="FeedBacks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,73 @@
+
+    
+            <!-- <div class="row">
+                <div class="col-md-6 offset-md-0">
+      <div style="align-content: center"> -->
+          
+<div class="box" align="center" style="padding-bottom: 200px">
+    <br/>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" style="border: white;box-shadow: 5px 5px 5px 5px black;width: 400px" >
+        <h2 class="Label" style="font-size: x-large; font-weight: bolder;background-color: black;color: white;width: 120px">
+            Profile
+        </h2>
+        <br>
+        <table>
+            
+            <tr>
+                    <td>
+                        <label class="Label" style="font-size: 20px;margin-right:20px;background-color: black;color: white;width: 120px">First Name</label>
+                    </td>
+                    <td>
+                        <input type="text" formControlName="FirstName" readonly class="form-control"  />
+                    </td>
+            </tr>
+            <br>
+            <tr>
+                    <td>
+                        <label class="Label" style="font-size: 20px;margin-right:20px;background-color: black;color: white;width: 120px">Last Name</label>
+                    </td>
+                    <td>
+                        <input type="text" formControlName="LastName" readonly class="form-control"  />
+                    </td>
+            </tr>
+            <br>
+                <tr>
+                        <td>
+                            <label class="Label" style="font-size: 20px;margin-right:20px;background-color: black;color: white;width: 120px">PhoneNo</label>
+                        </td>
+                        <td>
+                            <input type="number" formControlName="Phone" readonly class="form-control"  />
+                        </td>
+                    </tr>
+                    <br>
+                    <tr>
+                            <td>
+                                <label class="Label" style="font-size: 20px;margin-right:20px;background-color: black;color: white;width: 120px">EmailID</label>
+                            </td>
+                            <td>
+                                <input type="email" formControlName="Email" readonly class="form-control"  />
+                            </td>
+                        </tr>
+                        <br>
+                        <tr>
+                                <td>
+                                    <label class="Label" style="font-size: 20px;margin-right:20px;background-color: black;color: white;width: 120px">Address</label>
+                                </td>
+                                <td>
+                                    <input type="text" formControlName="Address" readonly class="form-control"  />
+                                </td>
+                            </tr>
+                            <br>
+                            <tr>
+                                    <td>
+                                        <label class="Label" style="font-size: 20px;margin-right:20px;background-color: black;color: white;width: 120px">Experience</label>
+                                    </td>
+                                    <td>
+                                        <input type="number" formControlName="Experience" readonly class="form-control"  />
+                                    </td>
+                                </tr>
+                                <br>
+        </table>
+    </form>
+</div>
+

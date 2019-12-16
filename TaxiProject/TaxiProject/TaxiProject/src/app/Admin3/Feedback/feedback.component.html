@@ -1,0 +1,14 @@
+<div style="margin-left: 10px;margin-right:10px;">
+        <h3>Taxi Details</h3>
+        <br />
+    
+    <table  class="table table-bordered" >
+        <tr *ngFor="let c of feedbacklist">
+                <td>{{c.feedbackID}}</td>
+            <td>{{c.Rating}}</td>
+            <td>{{c.Comments}}</td>
+            <td>{{c.empid}}</td>
+            <td>{{c.custid}}</td>
+        </tr>
+    </table>
+</div>

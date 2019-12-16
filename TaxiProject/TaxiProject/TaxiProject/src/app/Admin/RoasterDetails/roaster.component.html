@@ -1,0 +1,70 @@
+
+<br /><br />
+<div class="col-md-4 col-md-offset-4" style="height: 490px">
+        <h1>Employee-Roaster</h1> 
+    <!-- <h3>Add User</h3> -->
+
+    <!-- Designing Roaster User Form-->
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+                
+            <label for="empid">Emp ID: </label>
+            <input type="text" class="form-control" formControlName="empid" id="empid" />
+
+            <div *ngIf="submitted && addForm.controls.empid.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.empid.errors.required">
+                    Emp ID is required ..
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fromdate">FromDate: </label>
+            <input type="date" class="form-control" formControlName="fromdate" id="fromdate" />
+
+            <div *ngIf="submitted && addForm.controls.fromdate.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.fromdate.errors.required">
+                    Starting Date is required ..
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="todate">ToDate: </label>
+            <input type="date" class="form-control" formControlName="todate" id="todate" />
+
+            <div *ngIf="submitted && addForm.controls.todate.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.todate.errors.required">
+                    To Date is required ..
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <!-- <label for="intime">In Time </label>
+             <timepicker [(ngModel)]="mytime"></timepicker>
+            <pre class="alert alert-info">Time is: {{mytime}}</pre> -->
+            
+         <input type="time" class="form-control" formControlName="intime" id="intime" />
+
+            <div *ngIf="submitted && addForm.controls.intime.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.intime.errors.required">
+                    In time is required ..
+                </div>
+                
+            </div>
+        </div> 
+
+        <div class="form-group">
+            <label for="outtime">Out Time </label>
+            <input type="time" class="form-control" formControlName="outtime" id="outtime" />
+
+            <div *ngIf="submitted && addForm.controls.outtime.errors" class="error">
+                <div class="text-danger" *ngIf="addForm.controls.outtime.errors.required">
+                    To Date is required ..
+                </div>
+                
+            </div>
+        </div>
+        <button class="btn btn-success">Submit</button>
+        </form>
+        </div>

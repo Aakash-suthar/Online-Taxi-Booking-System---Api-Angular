@@ -1,0 +1,45 @@
+
+<div class="container">
+<table border="1" class="table">
+       
+    <tr style="background-color:yellow">
+        <th>BookingID</th>
+        <th>StartLocation</th>
+        <th>EndLocation</th>
+        <th>StartDate</th>
+        <th>StartTime</th>
+        <th>Taxinumber</th>
+        <th>BookingStatus</th>
+        <th>Trip</th>
+        <th>EmployeeID</th>
+        <th>CutomerID</th>
+        
+        
+      
+    </tr>
+    <tr *ngFor="let emp of Employeelist ">
+        <td>{{emp.BookingID  }}</td>
+        <td>{{emp.StartLocation }}</td>
+        <td>{{emp.EndLocation  }}</td>
+        <td>{{emp.startdate}}</td>
+        <td>{{emp.StartTime}}</td>   
+        <td>{{emp.BookingStatus}}</td>
+        <td>{{emp.Trip}}</td>
+        <td>{{emp.EmpId}}</td>
+        <td>{{emp.CustId}}</td>    
+        <td></td>             
+    </tr>
+    <tr *ngIf="!Employeelist || Employeelist.length==0">
+        <td colspan="10">
+            No booking to display
+        </td>
+    </tr>
+    
+</table>
+</div>
+
+
+
+    
+
+  

@@ -1,0 +1,19 @@
+.boxshadow
+{
+    -webkit-box-shadow: 1px 2px 14px 1px rgba(36,34,36,1);
+    -moz-box-shadow: 1px 2px 14px 1px rgba(36,34,36,1);
+    box-shadow: 1px 2px 14px 1px rgba(36,34,36,1);
+}
+.card {
+    background-color: rgba(126, 123, 215, 0.2);
+  }
+
+  .box{
+      box-shadow: 5px 5px 5px 5px black;
+    
+     
+  }
+
+  .Label{
+color: white;
+  }

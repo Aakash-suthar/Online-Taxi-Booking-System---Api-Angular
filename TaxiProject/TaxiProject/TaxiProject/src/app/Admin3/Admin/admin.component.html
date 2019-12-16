@@ -1,0 +1,36 @@
+
+        <nav class="navbar navbar-inverse">
+              <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a routerLink="/admin/roasterdetail">Roaster Details<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a routerLink="/admin/printroaster">Print Reports Roaster Details<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a routerLink="/admin/printfeedback">FeedBack<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a routerLink="/admin/manageuser">Manage System Users<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a routerLink="/admin/register">Register Emp<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li><a routerLink="/admin/taxi">Taxi Details<span class="sr-only">(current)</span></a></li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li><a routerLink="/admin/bookingtable">Booking Reports<span class="sr-only">(current)</span></a></li>
+            </ul>
+              <ul class="nav navbar-nav">
+                <li><button class="btn btn-danger" (click)='logout()'>Logout<span class="sr-only">(current)</span></button></li>
+            </ul>
+              <ul>
+                  <li style="color: wheat"> Welcome&nbsp;{{name}}</li>
+              </ul>
+               </div>
+
+
+        </nav>
+
+<router-outlet></router-outlet>

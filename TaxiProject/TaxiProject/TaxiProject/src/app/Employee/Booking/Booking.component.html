@@ -1,0 +1,58 @@
+
+<div  >
+        <h1 class="text-center" style="color:seashell">Booking Detail Page</h1>
+
+<table border="1" class="table" style="font-size: 10px;margin-top: 100px">
+
+       
+    <tr style="background-color: black;color: white; box-shadow: 3px 3px 3px 3px black;">
+        <th>BookingID</th>
+        <th>StartLocation</th>
+        <th>EndLocation</th>
+        <th>StartDate</th>
+        <th>StartTime</th>
+        <th>Taxinumber</th>
+        <th>BookingStatus</th>
+        <th>Trip</th>
+        <th>EmployeeID</th>
+        <th>CutomerID</th>
+        <th>Update Trip</th>
+        
+        
+      
+    </tr>
+    <tr *ngFor="let emp of Employeelist " style="background-color: white">
+        <td>{{emp.BookingID  }}</td>
+        <td>{{emp.StartLocation }}</td>
+        <td>{{emp.EndLocation  }}</td>
+        <td>{{emp. StartDate}}</td>
+        <td>{{emp.StartTime}}</td>
+        <td>{{emp.TaxiNumber}}</td>   
+        <td>{{emp.BookingStatus}}</td>
+        <td>{{emp.Trip}}</td>
+        <td>{{emp.EmpId}}</td>
+        <td>{{emp.CustId}}</td>  
+        <div *ngIf="!emp.Trip">  
+        <td><button type="submit" (click)="UpdateTrip(emp)">Trip done</button></td>  
+        </div>
+        <div *ngIf="emp.Trip">  
+            <td></td>      
+    </div>       
+    </tr>
+    <tr *ngIf="!Employeelist || Employeelist.length==0">
+        <td colspan="10">
+            No booking to display
+        </td>
+    </tr>
+    
+</table>
+</div>
+<div style="margin-top:450px">
+
+</div>
+
+
+
+    
+
+  

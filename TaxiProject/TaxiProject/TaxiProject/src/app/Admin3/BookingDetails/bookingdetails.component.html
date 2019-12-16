@@ -1,0 +1,51 @@
+
+<div class="container-fluid">
+        <div class="col-lg-12">
+                <label style="text-align: right;padding-right: 20px;">Filter By Trips</label>
+                  <input [(ngModel)]="searchText" style="width:100px;height:20px;align-content: center;" placeholder="search text goes here">
+                </div>
+    <table class="table table-responsive"> 
+        <tr style="background-color:yellow">
+            <th>BookingID</th>
+            <th>StartLocation</th>
+            <th>EndLocation</th>
+            <th>startdate</th>
+            <th>StartTime</th>
+            <th>BookingStatus</th>
+            <th>Trip</th>
+            <th>EmployeeID</th>
+            <th>CutomerID</th>
+            <th>Taxinumber</th>
+            <th>TaxiMOdel</th>
+
+            
+            
+          
+        </tr>
+        <tr *ngFor="let emp of Bookinglist | tripdone : searchText ">
+            <td>{{emp.BookingID  }}</td>
+            <td>{{emp.StartLocation }}</td>
+            <td>{{emp.EndLocation  }}</td>
+            <td>{{emp.StartDate | slice:0:10  }}</td>
+            <td>{{emp.StartTime | slice:0:5}}</td>   
+            <td>{{emp.BookingStatus | bookingfilter}}</td>
+            <td>{{emp.Trip | tripfilter}}</td>
+            <td>{{emp.EmpId}}</td>
+            <td>{{emp.CustId}}</td> 
+            <td>{{emp.TaxiNumber}}</td>   
+            <td>{{emp.TaxiMOdel}}</td>             
+        </tr>
+        <tr *ngIf="!Bookinglist || Bookinglist.length==0">
+            <td colspan="10">
+                No booking to display
+            </td>
+        </tr>
+        
+    </table>
+    </div>
+    
+    
+    
+        
+    
+      

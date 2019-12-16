@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Availabilitytable">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="emp" Type="int" />
+    <Property Name="selectdate" Type="date" />
+  </EntityType>
+  <EntityType Name="BookingDetails">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="StartLocation" Type="varchar" MaxLength="30" />
+    <Property Name="EndLocation" Type="varchar" MaxLength="30" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="TaxiNumber" Type="varchar" MaxLength="20" />
+    <Property Name="BookingStatus" Type="bit" />
+    <Property Name="Trip" Type="bit" />
+    <Property Name="EmpId" Type="int" />
+    <Property Name="CustId" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="TaxiModel" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Cust_Register">
+    <Key>
+      <PropertyRef Name="CustID" />
+    </Key>
+    <Property Name="CustID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Contact" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CustAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Pincode" Type="int" Nullable="false" />
+    <Property Name="CustPasswd" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Emp_Register">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Experience" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee_Roaster">
+    <Key>
+      <PropertyRef Name="RoasterID" />
+    </Key>
+    <Property Name="RoasterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpId" Type="int" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+    <Property Name="InTime" Type="time" Precision="7" />
+    <Property Name="OutTime" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="feedbackID" />
+    </Key>
+    <Property Name="feedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rating" Type="float" />
+    <Property Name="Comments" Type="varchar" MaxLength="100" />
+    <Property Name="empid" Type="int" />
+    <Property Name="custid" Type="int" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Logintable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Passwd" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Roles" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaxiDetails">
+    <Key>
+      <PropertyRef Name="TaxiID" />
+    </Key>
+    <Property Name="TaxiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaxiNumber" Type="varchar" MaxLength="20" />
+    <Property Name="TaxiModel" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__Availabilit__emp__4066405D">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="Availabilitytable" Type="Self.Availabilitytable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="Availabilitytable">
+        <PropertyRef Name="emp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingDe__CustI__31E316DC">
+    <End Role="Cust_Register" Type="Self.Cust_Register" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cust_Register">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingDe__EmpId__30EEF2A3">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="Self.BookingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__BookingDe__TaxiN__2FFACE6A' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__BookingDe__TaxiN__2FFACE6A" />-->
+  <Association Name="FK__Employee___EmpId__1D1D0420">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="Employee_Roaster" Type="Self.Employee_Roaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="Employee_Roaster">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FeedBack__custid__47133DEC">
+    <End Role="Cust_Register" Type="Self.Cust_Register" Multiplicity="0..1" />
+    <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cust_Register">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="FeedBack">
+        <PropertyRef Name="custid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FeedBack__empid__48076225">
+    <End Role="Emp_Register" Type="Self.Emp_Register" Multiplicity="0..1" />
+    <End Role="FeedBack" Type="Self.FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_Register">
+        <PropertyRef Name="EmpID" />
+      </Principal>
+      <Dependent Role="FeedBack">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Availabilitytable" EntityType="Self.Availabilitytable" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="BookingDetails" EntityType="Self.BookingDetails" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="Cust_Register" EntityType="Self.Cust_Register" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="Emp_Register" EntityType="Self.Emp_Register" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="Employee_Roaster" EntityType="Self.Employee_Roaster" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="Logintable" EntityType="Self.Logintable" Schema="OTBS" store:Type="Tables" />
+    <EntitySet Name="TaxiDetails" EntityType="Self.TaxiDetails" Schema="OTBS" store:Type="Tables" />
+    <AssociationSet Name="FK__Availabilit__emp__4066405D" Association="Self.FK__Availabilit__emp__4066405D">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="Availabilitytable" EntitySet="Availabilitytable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingDe__CustI__31E316DC" Association="Self.FK__BookingDe__CustI__31E316DC">
+      <End Role="Cust_Register" EntitySet="Cust_Register" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingDe__EmpId__30EEF2A3" Association="Self.FK__BookingDe__EmpId__30EEF2A3">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___EmpId__1D1D0420" Association="Self.FK__Employee___EmpId__1D1D0420">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="Employee_Roaster" EntitySet="Employee_Roaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FeedBack__custid__47133DEC" Association="Self.FK__FeedBack__custid__47133DEC">
+      <End Role="Cust_Register" EntitySet="Cust_Register" />
+      <End Role="FeedBack" EntitySet="FeedBack" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FeedBack__empid__48076225" Association="Self.FK__FeedBack__empid__48076225">
+      <End Role="Emp_Register" EntitySet="Emp_Register" />
+      <End Role="FeedBack" EntitySet="FeedBack" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

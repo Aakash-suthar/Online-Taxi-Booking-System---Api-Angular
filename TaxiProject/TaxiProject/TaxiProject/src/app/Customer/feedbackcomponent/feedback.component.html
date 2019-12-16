@@ -1,0 +1,22 @@
+<form class="form" [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+<div class="form-group  col-xs-3" style="background-color: black;margin-left: 400px; margin-top: 150px"> 
+
+    <h2 style="color: white">Feedback</h2>
+    <label for="sel1" style="color: white">Rating</label>
+    <select class="form-control" formControlName="Rating" id="sel1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+        <label for="comment" style="color: white">Comments:</label>
+        <textarea formControlName="Comments" class="form-control" rows="5" id="comment"></textarea><br>
+        <input formControlName="empid" type="text"  hidden>
+        <input formControlName="custid" type="text"  hidden>
+
+        <input type="submit" value="Submit" class="btn btn-warning" style="margin-left: 85px">
+  </div>
+</div>
+</form>

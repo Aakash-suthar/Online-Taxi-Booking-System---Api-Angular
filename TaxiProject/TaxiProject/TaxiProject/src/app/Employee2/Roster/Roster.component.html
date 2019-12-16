@@ -1,0 +1,43 @@
+<html>
+    <head></head>
+    <h1 class="text-center">Roster Detail Page</h1>
+    <hr/>
+<body>
+
+<div class="container">
+<table border="1" class="table">
+       
+    <tr style="background-color:yellow">
+        <th>Roster ID</th>
+        <th>Employee ID</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>In Time</th>
+        <th>Out Time</th>
+      
+    </tr>
+    <tr *ngFor="let rost of RosterList ">
+        <td>{{rost.RoasterID  }}</td>
+        <td>{{rost.EmpId }}</td>
+        <td>{{rost.FromDate  }}</td>
+        <td>{{rost.ToDate}}</td>
+        <td>{{rost.InTime}}</td>   
+        <td>{{rost.OutTime}}</td>  
+                   
+    </tr>
+    <tr *ngIf="!RosterList || RosterList.length==0">
+        <td colspan="6">
+            No Roaster data to display
+        </td>
+    </tr>
+    
+</table>
+</div>
+</body>
+</html>
+
+
+
+    
+
+  
